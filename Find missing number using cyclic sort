@@ -1,2 +1,39 @@
 #include <stdio.h>
+#include <string.h>
+void swap(int a[],int i, int correct){
+	int temp;
+	temp = a[i];
+	a[i] = a[correct];
+	a[correct] = temp;
+	return ;
+}
 int main()
+{
+	int a[]={0,5,1,3,2};
+	int length = sizeof(a)/sizeof(a[0]);
+	int i=0, correct;
+	while(i<length){
+		correct = a[i];
+		
+		if(a[i]!=a[correct]){
+			//if(correct >= length){
+			//	swap(a, i, length-1);
+		//	}
+			swap(a, i, correct);
+		}
+		else{
+			i++;
+		}
+	}
+	
+	for(i=0; i<length ; i++){
+		if(a[i]!= i){
+			printf("%d ", i);
+		}
+	}
+	printf("\n");
+	for(i=0; i<length ; i++){
+		printf("%d ",a[i]);
+	}
+	return 0;
+}
