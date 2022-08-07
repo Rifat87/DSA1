@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void swap (int *a, int index, int correct){
+	int temp;
+	
+	temp = a[index];
+	a[index] = a[correct];
+	a[correct] = temp;
+	return ;
+}
+
+int main()
+{
+	int *x, n, i=0, correct,j=0; 
+	
+	printf("Enter your numbers range: ");
+	scanf("%d",&n);
+	
+	x = (int *)(malloc(n*sizeof(int)));
+	
+	for(i=0; i<n; i++){
+		printf("Enter %dth number: ",i);
+		scanf("%d",&*(x+i));
+	}
+	while(j<n){
+		correct = x[j];
+		if((*(x+j)) != (*(x+correct)) && (*(x+j)) != n ){
+			swap (x, j, correct);
+		}
+		else {
+			j++;
+		}
+	}
+	for(i=0; i<n; i++){
+		printf("%d ",*(x+i));
+	}
+	printf("\n");
+	for(i=0; i<n; i++){
+		if(x [i]!= i){
+			printf("%d ", i);
+			goto l;
+		}
+	}
+	printf("%d",n);
+	l:
+		return 0;
+}
