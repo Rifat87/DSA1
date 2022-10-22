@@ -1,0 +1,24 @@
+package com.LinearSearch;
+
+import java.util.Scanner;
+
+public class Ls {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[] num = {1, 2, 3, 4, 534, 32, 23};
+        int target = 253;
+        int ans = linearsearch(num, target);
+        System.out.println(ans);
+    }
+    static int linearsearch( int[] arr, int target) {
+        if ( arr.length == 0) {
+            return -1;
+        }
+        for (int index = 0; index < arr.length; index++) {
+            if ( arr[index] == target) {
+                return index;
+            }
+        }
+        return -1;
+    }
+}
